@@ -233,8 +233,6 @@ These scripts and methods were mainly used to capture words contents from the NS
 However, I believe they can be transfered for other dynamic web crawlering besides the NSTL words.
 So, enjoy your python crawlering and have a wonderful journey!
 
--- Shuyue Jia
-
 ---
 
 ## License
