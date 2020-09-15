@@ -213,15 +213,15 @@ and **then capture the contents w.r.t. these word IDs**.
 
 Orders for NSTL words:
 
-**YEAR 2020**: C0200 + {29329 - 55000}    -->    19,892 Words
+**YEAR 2020**: C0200 + {29329 - 55000}    -->    19,960 Words
 
-**YEAR 2019**: C019 + {000000 - 500000}   -->    395,090 Words
+**YEAR 2019**: C019 + {000000 - 500000}   -->    395,093 Words
 
-**YEAR 2018**: C018 + {781660 - 999999}   -->    200,068 Words
+**YEAR 2018**: C018 + {781660 - 999999}   -->    199,906 Words
 
 FYI, there are lots of blank pages in these IDs' website. You can look through and run the codes, and then you will find out.
 
-Crawlering **614,888** words.
+Crawlered **614,888** words.
 
 Until **August 18th, 2020**, there are **614,959** Words available.
 
