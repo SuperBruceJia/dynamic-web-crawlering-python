@@ -354,7 +354,7 @@ if __name__ == '__main__':
 
 ```
 
-🏆 That's all! Enjoy your Python Crawlering!
+🏆 That's all! Enjoy your Python Crawlering and have a wonderful journey!
 
 ---
 
