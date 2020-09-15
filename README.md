@@ -225,6 +225,15 @@ FYI, there are lots of blank pages in these IDs' website. You can look through a
 
 Until **August 18th, 2020**, there are **614,959** Words available.
 
+
+The crawled dataset (JSON Format) is available at the [Shared Google Drive](https://drive.google.com/drive/folders/1pcuS8Lku1n_O54fsm4kpY59fegAxyZ8x?usp=sharing).
+
+<p align="center">
+    <img src='Photos/download.png'>
+    <br />
+    <br />
+</p>
+
 ---
 
 ## Parallelism Crawler
