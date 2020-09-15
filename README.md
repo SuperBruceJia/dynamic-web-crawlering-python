@@ -16,6 +16,7 @@
 <li><a href="#Prevent-Anti-reptile">Prevent Anti-reptile</a></li>
 <li><a href="#Links-of-the-Contents">Links of the Contents</a></li>
 <li><a href="#ID-Order">ID Order</a></li>
+<li><a href="#Parallelism-Crawler">Parallelism Crawler</a></li>
 <li><a href="#Announcement">Announcement</a></li>
 <li><a href="#License">License</a></li>
 </ul>
