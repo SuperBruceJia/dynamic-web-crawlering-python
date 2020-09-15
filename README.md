@@ -205,13 +205,12 @@ To get **IDs** in a single page (~ 10 IDs in one page): [**Link**](https://www.n
 
 ## ID Order
 
-In fact, there is an order for NSTL words w.r.t. different years, e.g., 2018, 2019, 2020, 
+In fact, there is an order for the NSTL words w.r.t. different years, e.g., 2018, 2019, 2020, 
 but I **don't recommend** you to use the order method because you might miss some words in this way.
 
-In contrast, I think it is superior to **capture all the words' IDs first**,
-and **then capture the contents w.r.t. these word IDs**.
+In contrast, I think it is superior to **capture all the words' IDs first** via [this script](https://github.com/SuperBruceJia/dynamic-web-crawlering-python/blob/master/get-website-IDs.ipynb), and **then capture the contents w.r.t. these word IDs** via [this script](https://github.com/SuperBruceJia/dynamic-web-crawlering-python/blob/master/fast-crawler-NSTL-data.ipynb).
 
-All the words' IDs were crawlled and available as a [CSV file](https://github.com/SuperBruceJia/dynamic-web-crawlering-python/blob/master/NSTL-IDs.csv).
+All the words' IDs were crawlled via [this script](https://github.com/SuperBruceJia/dynamic-web-crawlering-python/blob/master/get-website-IDs.ipynb) and available as a [CSV file](https://github.com/SuperBruceJia/dynamic-web-crawlering-python/blob/master/NSTL-IDs.csv).
 
 Orders for NSTL words:
 
@@ -223,9 +222,118 @@ Orders for NSTL words:
 
 FYI, there are lots of blank pages in these IDs' website. You can look through and run the codes, and then you will find out.
 
-Crawlered **614,888** words.
-
 Until **August 18th, 2020**, there are **614,959** Words available.
+
+---
+
+## Parallelism Crawler
+
+A parallel crawling demo is below, you guys can use it to crawl parallely.
+
+-> import threading
+
+-> define a function (e.g., fun)
+
+-> task = threading.Thread(target=fun, args=(IDs, ))
+
+-> task.start()
+
+***The number of parallel crawlers should be twice as your number of CPU cores***
+
+For example, if you are using a **four-core CPU**, I'd suggest you to start **8 tasks**.
+ 
+A Python demo is available below:
+
+```python
+
+import threading
+
+def get_JSON(ID: str):
+    save_year = 'YEAR-20/'
+
+    for i in ID:
+        JSON_file = ''
+
+        # Get the contents of the website
+        contents = read_url(ID=i)
+
+        if "Concept" in contents:
+            # Find the English Term from the contents
+            Eng_term, con_cut_eng = find_English_term(content=contents)
+
+            # Find the Chinese Term from the contents
+            Chi_term, con_cut_chi = find_Chinese_term(content=con_cut_eng)
+
+            # Find the English Definition from the contents
+            Eng_def, con_cut_def = find_English_definition(content=con_cut_chi)
+
+            # Find the Synonym Words from the contents
+            synonym_word = synonym(content=con_cut_chi)
+
+            # Find the Fields from another contents
+            field_names = field(ID=i)
+
+            # Combine all the found data and make string for JSON
+            JSON_file += '{'
+            JSON_file += '"English Term": ["'
+            JSON_file += Eng_term
+            JSON_file += '"], '
+            JSON_file += '"Chinese Term": ["'
+            JSON_file += Chi_term
+            JSON_file += '"], '
+            JSON_file += '"English Definition": ["'
+            JSON_file += Eng_def
+            JSON_file += '"], '
+            JSON_file += '"Synonym Words": ['
+            JSON_file += synonym_word
+            JSON_file += '], '
+            if field_names == ' ':
+                JSON_file += field_names
+            else:
+                JSON_file += '"Fields": []}'
+
+            # Save the JSON File for each word
+            save_json(eval(JSON_file), save_year + '%s_word.json' % i)
+            print('The %s word of %s has been successfully saved!' % (i, save_year))
+        else:
+            print(i)
+            print('There was no data in this website!')
+
+
+# The main function
+if __name__ == '__main__':
+    IDs = read_csv(csv_path='YEAR_2020.csv')
+
+    num = int(np.shape(IDs)[0] / 8)
+    ID1 = IDs[0 * num: 1 * num]
+    ID2 = IDs[1 * num: 2 * num]
+    ID3 = IDs[2 * num: 3 * num]
+    ID4 = IDs[3 * num: 4 * num]
+    ID5 = IDs[4 * num: 5 * num]
+    ID6 = IDs[5 * num: 6 * num]
+    ID7 = IDs[6 * num: 7 * num]
+    ID8 = IDs[7 * num:]
+
+    threadl = []
+    task1 = threading.Thread(target=get_JSON, args=(ID1, ))
+    task2 = threading.Thread(target=get_JSON, args=(ID2, ))
+    task3 = threading.Thread(target=get_JSON, args=(ID3, ))
+    task4 = threading.Thread(target=get_JSON, args=(ID4, ))
+    task5 = threading.Thread(target=get_JSON, args=(ID5, ))
+    task6 = threading.Thread(target=get_JSON, args=(ID6, ))
+    task7 = threading.Thread(target=get_JSON, args=(ID7, ))
+    task8 = threading.Thread(target=get_JSON, args=(ID8, ))
+
+    task1.start()
+    task2.start()
+    task3.start()
+    task4.start()
+    task5.start()
+    task6.start()
+    task7.start()
+    task8.start()
+
+```
 
 ---
 
