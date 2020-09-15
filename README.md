@@ -211,6 +211,8 @@ but I **don't recommend** you to use the order method because you might miss som
 In contrast, I think it is superior to **capture all the words' IDs first**,
 and **then capture the contents w.r.t. these word IDs**.
 
+All the words' IDs were crawlled and available as a [CSV file](https://github.com/SuperBruceJia/dynamic-web-crawlering-python/blob/master/NSTL-IDs.csv).
+
 Orders for NSTL words:
 
 **YEAR 2020**: C0200 + {29329 - 55000}    -->    19,960 Words
