@@ -228,21 +228,40 @@ Until **August 18th, 2020**, there are **614,959** Words available.
 
 ## Parallelism Crawler
 
-A parallel crawling demo is below, you guys can use it to crawl parallely.
+***Main idea:***
 
 -> import threading
+    
+    ```python
+    import threading
+    ```
 
 -> define a function (e.g., fun)
+    
+    ```python
+    def fun(param)
+        ***
+        ***
+        return ***
+    ```
 
--> task = threading.Thread(target=fun, args=(IDs, ))
+-> Make the function as one thread
+    
+    ```python
+    task = threading.Thread(target=fun, args=param)
+    ```
+    
+-> Start the task
+    
+    ```python
+    task.start()
+    ```
 
--> task.start()
-
-***The number of parallel crawlers should be twice as your number of CPU cores***
+**Notice**: *The number of parallel crawlers should be twice as your number of CPU cores*
 
 For example, if you are using a **four-core CPU**, I'd suggest you to start **8 tasks**.
  
-A Python demo is available below:
+**A Python demo is available below**:
 
 ```python
 
@@ -334,6 +353,8 @@ if __name__ == '__main__':
     task8.start()
 
 ```
+
+🏆 That's all! Enjoy your Python Crawlering!
 
 ---
 
