@@ -232,30 +232,30 @@ Until **August 18th, 2020**, there are **614,959** Words available.
 
 -> import threading
     
-    ```python
-    import threading
-    ```
+```python
+import threading
+```
 
 -> define a function (e.g., fun)
     
-    ```python
-    def fun(param)
-        ***
-        ***
-        return ***
-    ```
+```python
+def fun(param)
+    ***
+    ***
+    return ***
+```
 
 -> Make the function as one thread
     
-    ```python
-    task = threading.Thread(target=fun, args=param)
-    ```
+```python
+task = threading.Thread(target=fun, args=param)
+```
     
 -> Start the task
     
-    ```python
-    task.start()
-    ```
+```python
+task.start()
+```
 
 **Notice**: *The number of parallel crawlers should be twice as your number of CPU cores*
 
