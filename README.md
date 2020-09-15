@@ -262,7 +262,7 @@ task.start()
 
 For example, if you are using a **four-core CPU**, I'd suggest you to start **8 tasks**.
  
-**A Python demo is available below**:
+**A Python demo is available below** ([script code demo](https://github.com/SuperBruceJia/dynamic-web-crawlering-python/blob/master/parallel-crawl-script-demo.py)):
 
 ```python
 
